@@ -8,7 +8,7 @@ const addField = async (req, res) => {
     res.status(200).json(content);
   }
   catch(err){
-    res.status(400).json({message: err.message});
+    res.status(err.code).json({message: err.message});
   }
 };
 
@@ -20,7 +20,7 @@ const updateField = async (req, res) => {
     res.status(200).json(content);
   }
   catch(err){
-    res.status(400).json({message: err.message});
+    res.status(err.code).json({message: err.message});
   }
 };
 
