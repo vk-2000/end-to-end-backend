@@ -1,5 +1,5 @@
-const fieldService = require('../../src/services/fields');
-const fieldController = require('../../src/controllers/fields');
+const fieldService = require('../../../src/services/fields');
+const fieldController = require('../../../src/controllers/fields');
 
 describe('Field Controller', () => {
   describe('addField', () => {

@@ -1,5 +1,5 @@
-const fieldService = require('../../src/services/fields');
-const { Content } = require('../../src/models');
+const fieldService = require('../../../src/services/fields');
+const { Content } = require('../../../src/models');
 
 describe('Field Service', () => {
   describe('addField', () => {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1678359225369" clover="3.2.0">
-  <project timestamp="1678359225369" name="All files">
-    <metrics statements="117" coveredstatements="116" conditionals="20" coveredconditionals="17" methods="20" coveredmethods="20" elements="157" coveredelements="153" complexity="0" loc="117" ncloc="117" packages="5" files="9" classes="9"/>
+<coverage generated="1678362411143" clover="3.2.0">
+  <project timestamp="1678362411143" name="All files">
+    <metrics statements="129" coveredstatements="128" conditionals="20" coveredconditionals="17" methods="21" coveredmethods="21" elements="170" coveredelements="166" complexity="0" loc="129" ncloc="129" packages="6" files="10" classes="10"/>
     <package name="database.config">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="config.js" path="/Users/Varun_Kumar/Desktop/end-to-end-eval/end-to-end-backend/database/config/config.js">
@@ -54,6 +54,24 @@
         <line num="20" count="1" type="stmt"/>
         <line num="23" count="1" type="stmt"/>
         <line num="27" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.middlewares">
+      <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="auth.js" path="/Users/Varun_Kumar/Desktop/end-to-end-eval/end-to-end-backend/src/middlewares/auth.js">
+        <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.models">

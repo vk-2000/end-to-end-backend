@@ -1,5 +1,5 @@
-const contentService = require('../../src/services/contents');
-const contentController = require('../../src/controllers/contents');
+const contentService = require('../../../src/services/contents');
+const contentController = require('../../../src/controllers/contents');
 
 describe('Content Controller', () => {
   describe('getAllContents', () => {
