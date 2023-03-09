@@ -6,9 +6,9 @@ const getAllContents = async (req, res) => {
 };
 
 const getContentById = async (req, res) => {
-  const { id } = req.params;
+  const { contentId } = req.params;
   try{
-    const content = await contentService.getContentById(id);
+    const content = await contentService.getContentById(contentId);
     res.status(200).json(content);
   }
   catch(err){
@@ -23,10 +23,10 @@ const createContent = async (req, res) => {
 };
 
 const updateContentName = async (req, res) => {
-  const { id } = req.params;
+  const { contentId } = req.params;
   const { name } = req.body;
   try{
-    const content = await contentService.updateContentName(id, {name});
+    const content = await contentService.updateContentName(contentId, {name});
     res.status(200).json(content);
   }
   catch(err){

@@ -1,10 +1,11 @@
 const fieldService = require('../services/fields');
 
 const addField = async (req, res) => {
-  const { id } = req.params;
+  const { contentId } = req.params;
+  console.log(contentId);
   const field = req.body;
   try{
-    const content = await fieldService.addField(id, field);
+    const content = await fieldService.addField(contentId, field);
     res.status(200).json(content);
   }
   catch(err){
@@ -13,10 +14,10 @@ const addField = async (req, res) => {
 };
 
 const updateField = async (req, res) => {
-  const { id, oldName } = req.params;
+  const { contentId, oldName } = req.params;
   const data = req.body;
   try{
-    const content = await fieldService.updateField(id, oldName, data);
+    const content = await fieldService.updateField(contentId, oldName, data);
     res.status(200).json(content);
   }
   catch(err){
@@ -24,4 +25,16 @@ const updateField = async (req, res) => {
   }
 };
 
-module.exports = { addField, updateField };
+const deleteField = async (req, res) => {
+  const { contentId, fieldName } = req.params;
+  try{
+    const content = await fieldService.deleteField(contentId, fieldName);
+    res.status(200).json(content);
+  }
+  catch(err){
+    console.log(err);
+    res.status(err.code).json({message: err.message});
+  }
+};
+
+module.exports = { addField, updateField, deleteField };

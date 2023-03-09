@@ -70,4 +70,36 @@ describe('Field Controller', () => {
       expect(mockResponse.json).toHaveBeenCalledWith({ message: mockError.message });
     });
   });
+  describe('deleteField', () => {
+    it('should delete field', async () => {
+      const mockResponse = {
+        status: jest.fn().mockReturnThis(),
+        json: jest.fn()
+      };
+      const mockRequest = {
+        params: { id: 1, name: 'field1' }
+      };
+      const mockContent = {
+        fields: {}
+      };
+      jest.spyOn(fieldService, 'deleteField').mockResolvedValueOnce(mockContent);
+      await fieldController.deleteField(mockRequest, mockResponse);
+      expect(mockResponse.status).toHaveBeenCalledWith(200);
+      expect(mockResponse.json).toHaveBeenCalledWith(mockContent);
+    });
+    it('should return error if content not found', async () => {
+      const mockResponse = {
+        status: jest.fn().mockReturnThis(),
+        json: jest.fn()
+      };
+      const mockRequest = {
+        params: { id: 1, name: 'field1' }
+      };
+      const mockError = { code: 404, message: 'Content not found' };
+      jest.spyOn(fieldService, 'deleteField').mockRejectedValueOnce(mockError);
+      await fieldController.deleteField(mockRequest, mockResponse);
+      expect(mockResponse.status).toHaveBeenCalledWith(mockError.code);
+      expect(mockResponse.json).toHaveBeenCalledWith({ message: mockError.message });
+    });
+  });
 });
