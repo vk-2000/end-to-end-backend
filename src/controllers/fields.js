@@ -2,7 +2,6 @@ const fieldService = require('../services/fields');
 
 const addField = async (req, res) => {
   const { contentId } = req.params;
-  console.log(contentId);
   const field = req.body;
   try{
     const content = await fieldService.addField(contentId, field);

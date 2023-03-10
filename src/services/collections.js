@@ -16,10 +16,11 @@ const createCollection = async (contentId, data) => {
   const content = await Content.findByPk(contentId);
   const collection = await Collection.create(data);
   if(!content) throw new HTTPError('Content not found', 404);
-  return await content.addCollection(collection);
+  await content.addCollection(collection);
+  return collection;
 };
 const updateCollection = async (contentId, collectionId, data) => {
-  const collection = await Collection.update(data, {where: {id: collectionId, contentId}});
+  const collection = await Collection.update(data, {where: {id: collectionId, contentId}, returning: true});
   if(collection[0] === 0) throw new HTTPError('Collection not found', 404);
   return collection;
 };

@@ -6,12 +6,12 @@ const collectionValidation = async (req, res, next) => {
   const reqFields = req.body.values;
   for(let key in reqFields){
     if(!fields[key]){
-      return res.status(400).json({message: `Fields should be ${Object.keys(fields)}}`});
+      return res.status(400).json({message: `Fields should be ${Object.keys(fields)}`});
     }
   }
   for(let key in fields){
     if(!reqFields[key]){
-      return res.status(400).json({message: `Fields should be ${Object.keys(fields)}}`});
+      return res.status(400).json({message: `Fields should be ${Object.keys(fields)}`});
     }
   }
   next();

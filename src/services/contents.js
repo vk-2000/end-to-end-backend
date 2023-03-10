@@ -2,7 +2,15 @@ const {Content} = require('../models');
 const HTTPError = require('../utils/errors/HTTPError');
 
 const getAllContents = async () => {
-  const contents = await Content.findAll();
+  // get all contents from database with the count of collections associated with each content
+  const contents = await Content.findAll({
+    attributes: ['id', 'name', 'fields', [Content.sequelize.fn('COUNT', Content.sequelize.col('Collections.id')), 'collectionsCount']],
+    include: [{
+      model: Content.associations.Collections.target,
+      attributes: []
+    }],
+    group: ['Content.id']
+  });
   return contents;
 };
 const getContentById = async (id) => {

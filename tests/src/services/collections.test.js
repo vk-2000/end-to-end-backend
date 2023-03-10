@@ -35,7 +35,7 @@ describe('Collections Service', () => {
         {id: 1, name: 'Collection 1', values: []}
       );
       const collection = await collectionsService.createCollection({name: 'Collection 1'});
-      expect(collection).toEqual({});
+      expect(collection).toEqual({id: 1, name: 'Collection 1', values: []});
     });
     it('should throw error if content not found', async () => {
       jest.spyOn(Content, 'findByPk').mockResolvedValueOnce(null);
