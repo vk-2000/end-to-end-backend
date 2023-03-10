@@ -52,6 +52,20 @@ describe('Field Service', () => {
       jest.spyOn(Content, 'findByPk').mockResolvedValueOnce(content);
       await expect(fieldService.updateField(1, 'field1', {newName: 'field2', type: 'text'})).rejects.toThrow();
     });
+    it('should return content if new and old field names are the same', async () => {
+      const content = {
+        fields: {
+          field1: 'text'
+        }
+      };
+      jest.spyOn(Content, 'findByPk').mockResolvedValueOnce(content);
+      const updatedContent = await fieldService.updateField(1, 'field1', {newName: 'field1', type: 'text'});
+      expect(updatedContent).toEqual({
+        fields: {
+          field1: 'text'
+        }
+      });
+    });
     it('should throw error if new field name already exists', async () => {
       const content = {
         fields: {

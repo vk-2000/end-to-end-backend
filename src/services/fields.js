@@ -20,6 +20,9 @@ const addField = async (id, field) => {
 const updateField = async (id, oldName, data) => {
   const {newName, type} = data;
   const content = await Content.findByPk(id);
+  if(oldName === newName){
+    return content;
+  }
   const fields = content.fields;
   if(!fields[oldName]){
     throw new HTTPError('Field does not exist', 400);
